@@ -249,7 +249,8 @@ local function reconfigureClangd()
       offsetEncoding = { 'utf-8' },
     },
   })
-  vim.lsp.stop_client(vim.lsp.get_clients({ name = 'clangd' }))
+  vim.lsp.Client:stop(1)
+  -- vim.lsp.stop_client(vim.lsp.get_clients({ name = 'clangd' }))
   vim.defer_fn(function() vim.api.nvim_command('edit') end, 500)
 end
 
